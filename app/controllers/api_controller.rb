@@ -4,54 +4,42 @@ class ApiController < ApplicationController
 
     @count = params['count']
     @rating = params['rating']
-    @
-    
+    @order = params['order']
+    #@location = params['location']
+
+    @count ||= 100
+
+    case @order
+      when "location"
+        @order_string = 'location ASC'
+      when "origin"
+        @order_string = 'origin ASC'
+      when "rating"
+        @order_string = 'overall_rating DESC'
+      when "roast"
+        @order_string = 'roast DESC'
+      when "roaster"
+        @order_string = 'roaster ASC'
+      else
+        @order_string = 'review_date DESC'
+    end
+
     json_result = grab_by_term
 
     render :json => json_result, :status => :ok
 
   end
 
-  def search_by_term
-    @page_count = 1
-    @json_return = {}
+  def grab_by_term
 
-    @page = Nokogiri::HTML(open(BASE_URL_FIRST + @page_count.to_s + BASE_URL_SECOND + @search_term))
+    json_return = {}
 
-    #No reviews were found => return empty
+    json_return[:reviews] = Bean.where("overall_rating >= ?",
+                                       @rating).select(:name, :roaster, :overall_rating, :review_date,
+                                                       :description).limit(@count).reorder(@order_string)
 
-    if @page.at('h3:contains("No reviews were found")')
-      return {}.to_json
-    end
-
-
-    while true
-
-      @page.css("div.review").each { |review|
-        @bean = {}
-
-        @bean[:rating] = review.css("div.review-rating").text.to_i
-        @bean[:roaster] = review.css("h3").css("a").text
-
-        @json_return[review.css("h2").css("a").text] = @bean
-      }
-
-      begin
-        @page_count = @page_count + 1
-        @page = Nokogiri::HTML(open(BASE_URL_FIRST + @page_count.to_s + BASE_URL_SECOND + @search_term))
-      rescue OpenURI::HTTPError => e
-        if e.message == '404 Not Found'
-          break
-        else
-          raise e
-        end
-      end
-
-    end
-
-
-    return @json_return.to_json
+    return json_return.to_json
 
   end
-  
+
 end
