@@ -1,6 +1,10 @@
 CrApi::Application.routes.draw do
-  
-  
+
+  scope '/v2' do
+    scope '/reviews' do
+      get '/' => 'api#parse_params'
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
