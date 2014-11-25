@@ -19,7 +19,7 @@ def grab_coffees(all)
 
   base_url = "http://www.coffeereview.com/review/page/"
 
-  @page_count = 1
+  @page_count = 168
   @json_return = []
 
   @page = agent.get(base_url + @page_count.to_s)
