@@ -7,7 +7,7 @@ class ApiController < ApplicationController
     @order = params['order']
     #@location = params['location']
 
-    @count ||= 100
+    @count ||= 300
 
     case @order
       when "location"
@@ -34,9 +34,7 @@ class ApiController < ApplicationController
 
     json_return = {}
 
-    json_return[:reviews] = Bean.where("overall_rating >= ?",
-                                       @rating).select(:name, :roaster, :overall_rating, :review_date,
-                                                       :description).limit(@count).reorder(@order_string)
+    json_return[:reviews] = Bean.where("overall_rating >= ?", @rating).limit(@count).reorder(@order_string)
 
     return json_return.to_json
 

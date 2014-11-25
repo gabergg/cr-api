@@ -9,25 +9,24 @@ namespace :db do
   end
 end
 
-
 def grab_coffees
 
   agent = Mechanize.new
 
   base_url = "http://www.coffeereview.com/review/page/"
 
-  page_count = 1
+  @page_count = 1
   @json_return = []
 
-  page = agent.get(base_url + @page_count.to_s)
+  @page = agent.get(base_url + @page_count.to_s)
 
   while true
-    
-    if page_count > 1
+
+    if @page_count > 1
       break
     end
 
-    bean_links = page.links.find_all { |l| l.attributes.parent.name == 'h2' }
+    bean_links = @page.links.find_all { |l| l.attributes.parent.name == 'h2' }
     bean_links.shift
 
     #follow each link into its bean
@@ -37,22 +36,22 @@ def grab_coffees
 
       @bean = {}
 
-      @bean[:name] = doc.css("h2").css("a").text
+      @bean[:name] = doc.css("div.review-col1").css("h2").text
+      @bean[:roaster] = doc.css("div.review-col1").css("h3").text
       @bean[:overall_rating] = doc.css("div.review-rating").text.to_i
-      @bean[:roaster] = doc.css("h3").css("a").text
-      
-      bean_info = doc.css("div.review-content").css("p")
-      @bean[:location] = bean_stats[0].text.split(': ')[1]
-      @bean[:origin] = bean_stats[1].text.split(': ')[1]
-      @bean[:roast] = bean_stats[2].text.split(': ')[1]
-      @bean[:price] = bean_stats[3].text.split(': ')[1]
+
+      bean_info = doc.css("div.review-col1").css("p")
+      @bean[:location] = bean_info[0].text.split(': ')[1]
+      @bean[:origin] = bean_info[1].text.split(': ')[1]
+      @bean[:roast] = bean_info[2].text.split(': ')[1]
+      @bean[:price] = bean_info[3].text.split(': ')[1]
 
       pcounter = 0
       espresso = true
       bean_stats = doc.css("div.review-col2").css("p")
       @bean[:review_date] = bean_stats[pcounter].text.split(': ')[1]
       pcounter += 1
-      @bean[:agtron] = bean_stats[pcounter].text.split(': ')[1].to_i
+      @bean[:agtron] = bean_stats[pcounter].text.split(': ')[1]
       pcounter += 1
       @bean[:aroma] = bean_stats[pcounter].text.split(': ')[1].to_i
       pcounter += 1
@@ -68,21 +67,23 @@ def grab_coffees
       pcounter += 1
       @bean[:aftertaste] = bean_stats[pcounter].text.split(': ')[1].to_i
       pcounter += 1
-      if bean_stats[pcounter].text.split(': ')[1].length >= 2
-        @bean[:with_milk] = bean_stats[pcounter].text.split(': ')[1].to_i
-        pcounter += 1
+      if bean_stats[pcounter]
+        if bean_stats[pcounter].text.split(': ')[1].length <= 2
+          @bean[:with_milk] = bean_stats[pcounter].text.split(': ')[1].to_i
+        end
       end
-      pcounter += 1
-      @bean[:description] = bean_stats[pcounter].text
 
-      Bean.where(name: @bean[:name], overall_rating: @bean[:overall_rating], roaster: @bean[:roaster],
-                 review_date: @bean[:review_date], description: @bean[:description]).first_or_create
-      
+      pInReview = doc.css("div.review-content").css("p").length
+      @bean[:description] = doc.css("div.review-content").css("p")[pInReview-4].text
+      p @bean[:overall_rating]
+
+      Bean.where(@bean).first_or_create
+
     end
 
     begin
       @page_count += 1
-      @page = Nokogiri::HTML(open(base_url + @page_count.to_s))
+      @page = agent.get(base_url + @page_count.to_s)
     rescue OpenURI::HTTPError => e
       if e.message == '404 Not Found'
         break
