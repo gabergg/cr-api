@@ -5,7 +5,7 @@ class ApiController < ApplicationController
     @count = params['count']
     @rating = params['rating']
     @order = params['order']
-    #@location = params['location']
+    @location = params['location']
 
     @count ||= 300
     @rating ||= 50
@@ -34,8 +34,11 @@ class ApiController < ApplicationController
   def grab_by_term
 
     json_return = {}
-
-    json_return[:reviews] = Bean.where("overall_rating >= ?", @rating).limit(@count).reorder(@order_string)
+    if @location
+      json_return[:reviews] = Bean.where("overall_rating >= ? AND location like ?", @rating, "%#{@location}%").limit(@count).reorder(@order_string)
+    else
+      json_return[:reviews] = Bean.where("overall_rating >= ?", @rating).limit(@count).reorder(@order_string)
+    end
 
     return json_return.to_json
 

@@ -5,11 +5,15 @@ require 'mechanize'
 namespace :db do
   desc "TODO"
   task populate: :environment do
-    grab_coffees
+    grab_coffees(false)
+  end
+
+  task populateall: :environment do
+    grab_coffees(true)
   end
 end
 
-def grab_coffees
+def grab_coffees(all)
 
   agent = Mechanize.new
 
@@ -22,12 +26,15 @@ def grab_coffees
 
   while true
 
-    if @page_count > 1
+=begin
+    #page limit if need be
+    if @page_count > 39
       break
     end
+=end
+
 
     bean_links = @page.links.find_all { |l| l.attributes.parent.name == 'h2' }
-    bean_links.shift
 
     #follow each link into its bean
     bean_links.each do |link|
@@ -53,23 +60,29 @@ def grab_coffees
       pcounter += 1
       @bean[:agtron] = bean_stats[pcounter].text.split(': ')[1]
       pcounter += 1
-      @bean[:aroma] = bean_stats[pcounter].text.split(': ')[1].to_i
-      pcounter += 1
-      acidityOrBody = bean_stats[pcounter].text.split(': ')[0]
-      if acidityOrBody == "Acidity"
-        @bean[:acidity] = bean_stats[pcounter].text.split(': ')[1].to_i
-        espresso = false
-        pcounter += 1
-      end
-      @bean[:body] = bean_stats[pcounter].text.split(': ')[1].to_i
-      pcounter += 1
-      @bean[:flavor] = bean_stats[pcounter].text.split(': ')[1].to_i
-      pcounter += 1
-      @bean[:aftertaste] = bean_stats[pcounter].text.split(': ')[1].to_i
-      pcounter += 1
       if bean_stats[pcounter]
-        if bean_stats[pcounter].text.split(': ')[1].length <= 2
-          @bean[:with_milk] = bean_stats[pcounter].text.split(': ')[1].to_i
+        @bean[:aroma] = bean_stats[pcounter].text.split(': ')[1].to_i
+        pcounter += 1
+        acidityOrBody = bean_stats[pcounter].text.split(': ')[0]
+        if acidityOrBody == "Acidity"
+          @bean[:acidity] = bean_stats[pcounter].text.split(': ')[1].to_i
+          espresso = false
+          pcounter += 1
+        end
+        @bean[:body] = bean_stats[pcounter].text.split(': ')[1].to_i
+        pcounter += 1
+        if bean_stats[pcounter]
+          @bean[:flavor] = bean_stats[pcounter].text.split(': ')[1].to_i
+          pcounter += 1
+          if bean_stats[pcounter]
+            @bean[:aftertaste] = bean_stats[pcounter].text.split(': ')[1].to_i
+            pcounter += 1
+            if bean_stats[pcounter]
+              if bean_stats[pcounter].text.split(': ')[1].length <= 2
+                @bean[:with_milk] = bean_stats[pcounter].text.split(': ')[1].to_i
+              end
+            end
+          end
         end
       end
 
@@ -78,6 +91,15 @@ def grab_coffees
       p @bean[:overall_rating]
 
       Bean.where(@bean).first_or_create
+
+=begin
+      this_bean = Bean.where(@bean)
+      if this_bean.find && all == false
+        return
+      else
+        this_bean.create
+      end
+=end
 
     end
 
