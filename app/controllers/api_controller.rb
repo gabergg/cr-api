@@ -8,6 +8,7 @@ class ApiController < ApplicationController
     #@location = params['location']
 
     @count ||= 300
+    @rating ||= 50
 
     case @order
       when "location"
