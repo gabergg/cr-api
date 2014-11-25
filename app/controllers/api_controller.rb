@@ -6,6 +6,9 @@ class ApiController < ApplicationController
     @rating = params['rating']
     @order = params['order']
     @location = params['location']
+    @origin = params['origin']
+    @roast = params['roast']
+    @roaster = params['roaster']
 
     @count ||= 300
     @rating ||= 50
@@ -34,11 +37,31 @@ class ApiController < ApplicationController
   def grab_by_term
 
     json_return = {}
+    sqlParams = {}
+    sqlQuery = "overall_rating >= :rating"
+    sqlParams[:rating] = @rating
+    
     if @location
-      json_return[:reviews] = Bean.where("overall_rating >= ? AND location like ?", @rating, "%#{@location}%").limit(@count).reorder(@order_string)
-    else
-      json_return[:reviews] = Bean.where("overall_rating >= ?", @rating).limit(@count).reorder(@order_string)
+      sqlQuery += " AND lower(location) like :location"
+      sqlParams[:location] = "%#{@location.downcase}%"
     end
+
+    if @origin
+      sqlQuery += " AND lower(origin) like :origin"
+      sqlParams[:origin] = "%#{@origin.downcase}%"
+    end
+
+    if @roast
+      sqlQuery += " AND lower(roast) like :roast"
+      sqlParams[:roast] = "%#{@roast.downcase}%"
+    end
+
+    if @roaster
+      sqlQuery += " AND lower(roaster) like :roaster"
+      sqlParams[:roaster] = "%#{@roaster.downcase}%"
+    end
+
+    json_return[:reviews] = Bean.where(sqlQuery, sqlParams).limit(@count).reorder(@order_string)
 
     return json_return.to_json
 
