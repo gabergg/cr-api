@@ -1,5 +1,4 @@
-**API Endpoint** <br>
-Coffee Review API endpoint: <br>
+**Coffee Review API Endpoint** <br>
 `http://coffeeapi.herokuapp.com/v2`
 
 ---
