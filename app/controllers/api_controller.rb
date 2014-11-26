@@ -10,7 +10,7 @@ class ApiController < ApplicationController
     @roast = params['roast']
     @roaster = params['roaster']
 
-    @count ||= 300
+    @count ||= 100
     @rating ||= 50
 
     case @order
