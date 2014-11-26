@@ -29,7 +29,7 @@
    `roast=[{light,medium-light,medium,medium-dark,dark}]`    _roast level_ <br>
    `roaster=[string]`    _substring roaster match e.g. intell_<br>
    `rating=[integer]`    _minimum rating_<br>
-   `count=[integer]`    _number of reviews in json response_<br>
+   `count=[integer]`    _number of reviews to grab_<br>
 
    **Defaults:**
 
