@@ -33,14 +33,14 @@
 
    **Defaults:**
 
-   order=date
+   order=date <br>
    count=100
 
 * **Success Response:**
 
   * **Code:** 200 <br>
-    **Content:** <br>
-```javascript
+    **Content:**
+  ```javascript
   {
   "name":"Panama Ironman Camilina Geisha",
   "roaster":"Klatch Coffee",
@@ -58,7 +58,7 @@
   "price":"$49.95/8 ounces",
   "agtron":"58/80",
   "with_milk":null}
-```
+  ```
 
 * **Sample Call:**
 
