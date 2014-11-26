@@ -23,13 +23,13 @@
 
    **Optional:**
 
-   order=[{date,location,origin,roast,roaster}] _order of reviews in json response_ <br>
-   location=[_string_] **substring roaster location match e.g. cali**<br>
-   origin=[_string_] **substring origin match e.g. ethio**<br>
-   roast=[_{light,medium-light,medium,medium-dark,dark}_] medium will return medium-light, medium, and medium-dark <br>
-   roaster=[_string_] _substring roaster match e.g. intell_<br>
-   rating=[_integer_] _minimum rating_<br>
-   count=[_integer_] _number of reviews in json response_<br>
+   order=[{date,location,origin,roast,roaster}]    **order of reviews in json response** <br>
+   location=[_string_]    **substring roaster location match e.g. cali**<br>
+   origin=[_string_]    **substring origin match e.g. ethio**<br>
+   roast=[_{light,medium-light,medium,medium-dark,dark}_]    **roast level** <br>
+   roaster=[_string_]    **substring roaster match e.g. intell**<br>
+   rating=[_integer_]    **minimum rating**<br>
+   count=[_integer_]    **number of reviews in json response**<br>
 
    **Defaults:**
 
@@ -40,7 +40,7 @@
 
   * **Code:** 200 <br>
     **Content:** <br>
-    ```json
+    ```javascript
 {
 "name":"Panama Ironman Camilina Geisha",
 "roaster":"Klatch Coffee",
