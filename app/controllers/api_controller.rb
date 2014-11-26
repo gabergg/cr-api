@@ -40,7 +40,7 @@ class ApiController < ApplicationController
     sqlParams = {}
     sqlQuery = "overall_rating >= :rating"
     sqlParams[:rating] = @rating
-    
+
     if @location
       sqlQuery += " AND lower(location) like :location"
       sqlParams[:location] = "%#{@location.downcase}%"
@@ -61,7 +61,9 @@ class ApiController < ApplicationController
       sqlParams[:roaster] = "%#{@roaster.downcase}%"
     end
 
-    json_return[:reviews] = Bean.where(sqlQuery, sqlParams).limit(@count).reorder(@order_string)
+    json_return[:reviews] = Bean.where(sqlQuery, sqlParams).limit(@count).reorder(@order_string).as_json.map do |bean|
+      bean.except("id", "created_at", "updated_at")
+    end
 
     return json_return.to_json
 

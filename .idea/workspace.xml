@@ -83,20 +83,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1140">
-              <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.6785714" vertical-offset="470" max-vertical-offset="1170">
+              <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="65" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="404.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/404.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15532544" vertical-offset="0" max-vertical-offset="676">
+            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
               <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
               <folding />
             </state>
@@ -148,8 +148,8 @@
         <option value="$PROJECT_DIR$/lib/tasks/scrape_cr.rake" />
         <option value="$PROJECT_DIR$/lib/tasks/scrape_cr_working.rake" />
         <option value="$PROJECT_DIR$/README.rdoc" />
-        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/public/404.html" />
+        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
       </list>
     </option>
   </component>
@@ -882,14 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1140">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
@@ -908,8 +900,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/404.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15532544" vertical-offset="0" max-vertical-offset="676">
+        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
           <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6785714" vertical-offset="470" max-vertical-offset="1170">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="65" selection-end-column="7" />
           <folding />
         </state>
       </provider>
