@@ -23,13 +23,13 @@
 
    **Optional:**
 
-   `order=[{date,location,origin,roast,roaster}]`    **order of reviews in json response** <br>
-   `location=[_string_]`    **substring roaster location match e.g. cali**<br>
-   `origin=[_string_]`    **substring origin match e.g. ethio**<br>
-   `roast=[_{light,medium-light,medium,medium-dark,dark}_]`    **roast level** <br>
-   `roaster=[_string_]`    **substring roaster match e.g. intell**<br>
-   `rating=[_integer_]`    **minimum rating**<br>
-   `count=[_integer_]`    **number of reviews in json response**<br>
+   `order=[{date,location,origin,roast,roaster}]`    _order of reviews in json response_ <br>
+   `location=[string]`    _substring roaster location match e.g. cali_<br>
+   `origin=[string]`    _substring origin match e.g. ethio_<br>
+   `roast=[{light,medium-light,medium,medium-dark,dark}]`    _roast level_ <br>
+   `roaster=[string]`    _substring roaster match e.g. intell_<br>
+   `rating=[integer]`    _minimum rating_<br>
+   `count=[integer]`    _number of reviews in json response_<br>
 
    **Defaults:**
 
@@ -41,23 +41,23 @@
   * **Code:** 200 <br>
     **Content:** <br>
 ```javascript
-{
-"name":"Panama Ironman Camilina Geisha",
-"roaster":"Klatch Coffee",
-"roast":"Medium-Light",
-"origin":"Boquete growing region, western Panama.",
-"location":"Los Angeles, California",
-"review_date":"September 2014",
-"overall_rating":97,
-"aroma":10,
-"acidity":9,
-"body":9,
-"flavor":10,
-"aftertaste":9,
-"description":"Beautifully structured and almost impossibly intricate in flavor and aroma. The fruit sensation is so deep and so complex that one could find almost any note in it: we settled on guava, mango and tangerine. Intensely floral – passion fruit, lilac, lily – with crisp cacao nib and sandalwood complication. Rich, lyric acidity; syrupy but buoyant mouthfeel. The aromatic fireworks quiet a bit but still saturate the finish.",
-"price":"$49.95/8 ounces",
-"agtron":"58/80",
-"with_milk":null}
+  {
+  "name":"Panama Ironman Camilina Geisha",
+  "roaster":"Klatch Coffee",
+  "roast":"Medium-Light",
+  "origin":"Boquete growing region, western Panama.",
+  "location":"Los Angeles, California",
+  "review_date":"September 2014",
+  "overall_rating":97,
+  "aroma":10,
+  "acidity":9,
+  "body":9,
+  "flavor":10,
+  "aftertaste":9,
+  "description":"Beautifully structured and almost impossibly intricate in flavor and aroma. The fruit sensation is so deep and so complex that one could find almost any note in it: we settled on guava, mango and tangerine. Intensely floral – passion fruit, lilac, lily – with crisp cacao nib and sandalwood complication. Rich, lyric acidity; syrupy but buoyant mouthfeel. The aromatic fireworks quiet a bit but still saturate the finish.",
+  "price":"$49.95/8 ounces",
+  "agtron":"58/80",
+  "with_milk":null}
 ```
 
 * **Sample Call:**
