@@ -38,28 +38,11 @@
 
 * **Success Response:**
 
-  * **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+  * **Code:** 200 <br>
+    **Content:** `{"id":78,"name":"Panama Ironman Camilina Geisha","roaster":"Klatch Coffee","roast":"Medium-Light","origin":"Boquete growing region, western Panama.","location":"Los Angeles, California","review_date":"September 2014","overall_rating":97,"aroma":10,"acidity":9,"body":9,"flavor":10,"aftertaste":9,"created_at":"2014-11-25T11:02:58.885Z","updated_at":"2014-11-25T11:02:58.885Z","description":"Beautifully structured and almost impossibly intricate in flavor and aroma. The fruit sensation is so deep and so complex that one could find almost any note in it: we settled on guava, mango and tangerine. Intensely floral – passion fruit, lilac, lily – with crisp cacao nib and sandalwood complication. Rich, lyric acidity; syrupy but buoyant mouthfeel. The aromatic fireworks quiet a bit but still saturate the finish.","price":"$49.95/8 ounces","agtron":"58/80","with_milk":null}`
 
 * **Sample Call:**
 
-  ```javascript
-    $.ajax({
-      url: "/users/1",
-      dataType: "json",
-      type : "GET",
-      success : function(r) {
-        console.log(r);
-      }
-    });
+  ```bash
+    curl 'http://coffeeapi.herokuapp.com/v2/reviews?rating=95&location=cali&order=rating&count=15'
   ```
