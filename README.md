@@ -24,12 +24,12 @@
    **Optional:**
 
    order=[{date,location,origin,roast,roaster}] _order of reviews in json response_ <br>
-   location=[*string] _substring roaster location match e.g. cali_<br>
-   origin=[string] _substring origin match e.g. ethio_<br>
-   roast=[{light,medium-light,medium,medium-dark,dark}] _medium will return medium-light, medium, and medium-dark_ <br>
-   roaster=[string] _substring roaster match e.g. intell_<br>
-   rating=[integer] _minimum rating_<br>
-   count=[integer] _number of reviews in json response_<br>
+   location=[_string_] **substring roaster location match e.g. cali**<br>
+   origin=[_string_] **substring origin match e.g. ethio**<br>
+   roast=[_{light,medium-light,medium,medium-dark,dark}_] medium will return medium-light, medium, and medium-dark <br>
+   roaster=[_string_] _substring roaster match e.g. intell_<br>
+   rating=[_integer_] _minimum rating_<br>
+   count=[_integer_] _number of reviews in json response_<br>
 
    **Defaults:**
 
