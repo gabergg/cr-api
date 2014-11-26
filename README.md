@@ -36,6 +36,12 @@
    order=date <br>
    count=100
 
+* **Sample Call:**
+
+  ```bash
+    curl 'http://coffeeapi.herokuapp.com/v2/reviews?rating=95&location=cali&order=rating&count=15'
+  ```
+
 * **Success Response:**
 
   * **Code:** 200 <br>
@@ -62,10 +68,4 @@
       "with_milk":null
       }, ...
   }
-  ```
-
-* **Sample Call:**
-
-  ```bash
-    curl 'http://coffeeapi.herokuapp.com/v2/reviews?rating=95&location=cali&order=rating&count=15'
   ```
