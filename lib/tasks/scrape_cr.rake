@@ -90,16 +90,14 @@ def grab_coffees(all)
       @bean[:description] = doc.css("div.review-content").css("p")[pInReview-4].text
       p @bean[:overall_rating]
 
-      Bean.where(@bean).first_or_create
+      #Bean.where(@bean).first_or_create
 
-=begin
       this_bean = Bean.where(@bean)
-      if this_bean.find && all == false
+      if this_bean && all == false
         return
       else
         this_bean.create
       end
-=end
 
     end
 
