@@ -1,4 +1,8 @@
-**Coffee Review API Endpoint:** <br>
+This is a basic little API for CoffeeReview.com. It's still unrefined; feel free to contact me/comment with issues, ideas, or suggestions.
+
+---
+
+**API Endpoint:** <br>
 `http://coffeeapi.herokuapp.com/v2`
 
 ---
