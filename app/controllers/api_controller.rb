@@ -25,7 +25,7 @@ class ApiController < ApplicationController
       when "roaster"
         @order_string = 'roaster ASC'
       else
-        @order_string = 'review_date DESC'
+        @order_string = 'created_at ASC'
     end
 
     json_result = grab_by_term
