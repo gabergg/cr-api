@@ -1,4 +1,8 @@
-**Coffee Review API Endpoint:** <br>
+This is a basic little API for CoffeeReview.com. It's still unrefined; feel free to contact me/comment with issues, ideas, or suggestions.
+
+---
+
+**API Endpoint:** <br>
 `http://coffeeapi.herokuapp.com/v2`
 
 ---
@@ -24,7 +28,7 @@
    **Optional:**
 
    `order=[{date,location,origin,roast,roaster}]`    _order of reviews in json response_ <br>
-   `location=[string]`    _substring roaster location match e.g. cali_<br>
+   `location=[string]`    _substring roaster location match e.g. new+yor_<br>
    `origin=[string]`    _substring origin match e.g. ethio_<br>
    `roast=[{light,medium-light,medium,medium-dark,dark}]`    _roast level_ <br>
    `roaster=[string]`    _substring roaster match e.g. intell_<br>
