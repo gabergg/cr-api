@@ -20,8 +20,6 @@ class ApiController < ApplicationController
         @order_string = 'origin ASC'
       when "rating"
         @order_string = 'overall_rating DESC'
-      when "roast"
-        @order_string = 'roast DESC'
       when "roaster"
         @order_string = 'roaster ASC'
       else

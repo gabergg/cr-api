@@ -27,7 +27,7 @@ This is a basic little API for CoffeeReview.com. It's still unrefined; feel free
 
    **Optional:**
 
-   `order=[{date,location,origin,roast,roaster}]`    _order of reviews in json response_ <br>
+   `order=[{date,location,origin,roaster}]`    _order of reviews in json response_ <br>
    `location=[string]`    _substring roaster location match e.g. new+yor_<br>
    `origin=[string]`    _substring origin match e.g. ethio_<br>
    `roast=[{light,medium-light,medium,medium-dark,dark}]`    _roast level_ <br>
