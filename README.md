@@ -1,6 +1,6 @@
 **To Uber:** <br>
 
-This project focuses on back-end. Feel free to check out https://github.com/gabergg/gabergg.github.io for some front-end code, or https://github.com/gabergg/third_wave for some full-stack code (disclaimer: I'm no designer!). 
+This project focuses on back-end. Feel free to check out https://github.com/gabergg/gabergg.github.io (hosted at http://gabergg.github.io/tictactoe) for some front-end code, or https://github.com/gabergg/third_wave (hosted at http://thirdwave.herokuapp.com) for some a larger rails project (disclaimer: UI is all over the place currently!). 
 
 This is currently hosted at coffeeapi.herokuapp.com. You can find my resume at gabegsell.com/resume.
 
@@ -40,7 +40,7 @@ CoffeeReview.com has some useful coffee reviews, but it doesn't have the flexibi
 
    **Optional:**
 
-   `order=[{date,location,origin,roaster}]`    _order of reviews in json response_ <br>
+   `order=[{rating,location,origin,roaster}]`    _order of reviews in json response_ <br>
    `location=[string]`    _substring roaster location match e.g. new+yor_<br>
    `origin=[string]`    _substring origin match e.g. ethio_<br>
    `roast=[{light,medium-light,medium,medium-dark,dark}]`    _roast level_ <br>
