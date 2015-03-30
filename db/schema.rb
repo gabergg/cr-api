@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125070119) do
+ActiveRecord::Schema.define(version: 20150114030514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20141125070119) do
     t.integer  "aftertaste"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
     t.string   "price"
     t.string   "agtron"
     t.integer  "with_milk"
+    t.string   "description"
   end
 
   add_index "beans", ["location"], name: "index_beans_on_location", using: :btree
