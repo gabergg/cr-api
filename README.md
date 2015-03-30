@@ -8,6 +8,9 @@ This API is currently hosted at coffeeapi.herokuapp.com. You can find my resume 
 
 ---
 
+**Coffee Review API v2**
+----
+
 This is a basic little API for CoffeeReview.com. It includes rake tasks to scrape new reviews into the database, which are then accessed through the API. It's still unrefined; feel free to contact me/comment with issues, ideas, or suggestions. 
 
 ---
@@ -22,8 +25,8 @@ CoffeeReview.com has some useful coffee reviews, but it doesn't have the flexibi
 
 ---
 
-**Get Reviews**
-----
+<h4>Get Reviews</h4>
+---
   Returns json data about a set of coffee reviews.
 
 * **URL**
