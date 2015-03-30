@@ -1,4 +1,17 @@
-This is a basic little API for CoffeeReview.com. It's still unrefined; feel free to contact me/comment with issues, ideas, or suggestions.
+**To Uber:** <br>
+
+This project focuses on back-end. Feel free to check out https://github.com/gabergg/gabergg.github.io for some front-end code, or https://github.com/gabergg/third_wave for some full-stack code (disclaimer: I'm no designer!). 
+
+This is currently hosted at coffeeapi.herokuapp.com. You can find my resume at gabegsell.com/resume.
+
+---
+
+This is a basic little API for CoffeeReview.com. It includes rake tasks to scrape new reviews into the database, which are then accessed through the API. It's still unrefined; feel free to contact me/comment with issues, ideas, or suggestions. 
+
+---
+
+**Motivation** <br>
+CoffeeReview.com has some useful coffee reviews, but it doesn't have the flexibility that I would like to navigate the reviews. Furthermore, I wanted json-based access to these reviews, in part for the potential to integrate with other projects. 
 
 ---
 
