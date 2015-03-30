@@ -2,7 +2,9 @@
 
 This project focuses on back-end. Feel free to check out https://github.com/gabergg/gabergg.github.io (hosted at http://gabergg.github.io/tictactoe) for some front-end code, or https://github.com/gabergg/third_wave (hosted at http://thirdwave.herokuapp.com) for some a larger rails project (disclaimer: UI is all over the place currently!). 
 
-This is currently hosted at coffeeapi.herokuapp.com. You can find my resume at gabegsell.com/resume.
+Technologies: I was learning Rails when I decided to build this. Furthermore, Rails gives some nice routing for APIs and Rspec allows for clean and organized testing. Rails allowed me to develop rapidly, and ActiveRecord makes it nice to work with models and our database. If I weren't learning Rails at the time, I would have used an API gem. I'm using PostgreSQL to run the same database in development and production on Heroku.
+
+This API is currently hosted at coffeeapi.herokuapp.com. You can find my resume at gabegsell.com/resume.
 
 ---
 
