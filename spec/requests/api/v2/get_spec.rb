@@ -131,7 +131,7 @@ describe "Coffee Review API" do
       create(:bean, location: :Hanoi, roast: :medium, roaster: :Heart, origin: :Ethiopia, overall_rating: 81)
     }
 
-    it 'gets reviews ordered by asending attribute' do
+    it 'gets reviews ordered by ascending attribute' do
 
       ordersAsc = ['location', 'origin', 'roaster']
 

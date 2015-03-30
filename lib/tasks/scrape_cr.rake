@@ -5,11 +5,11 @@ require 'mechanize'
 namespace :db do
   desc "TODO"
   task populate: :environment do
-    grab_coffees(false)
+    grab_coffees(false) #scrape only reviews on site that aren't already in our database
   end
 
   task populateall: :environment do
-    grab_coffees(true)
+    grab_coffees(true) #scrape all reviews on site
   end
 end
 

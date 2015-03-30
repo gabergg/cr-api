@@ -10,9 +10,10 @@ class ApiController < ApplicationController
     @roast = params['roast']
     @roaster = params['roaster']
 
-    @count ||= 100
-    @rating ||= 50
+    @count ||= 100 # 100 reviews returned by default
+    @rating ||= 50 # minimum rating of 50 by default
 
+    # various ways to order the reviews
     case @order
       when "location"
         @order_string = 'location ASC'
@@ -39,6 +40,7 @@ class ApiController < ApplicationController
     sqlQuery = "overall_rating >= :rating"
     sqlParams[:rating] = @rating
 
+    # build our sql query from parameters in user query
     if @location
       sqlQuery += " AND lower(location) like :location"
       sqlParams[:location] = "%#{@location.downcase}%"
